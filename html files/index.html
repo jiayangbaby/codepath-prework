@@ -3,95 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title>St. Louis Project</title>
     <style>
         body {
+            background-image: url('hoffmann_nashville.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            height: 100vh;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #f9f9f9;
-        }
-        .container {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 60px; /* Space for the Go Back button */
-        }
-        .box {
-            width: 150px;
-            height: 150px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: rgba(188, 181, 176, 1);
-            color: white;
             text-align: center;
-            font-size: 18px;
-            border-radius: 8px;
-            cursor: pointer;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .box:hover {
-            background-color:#C8102E;
-        }
-        .go-back-box {
-            width: 150px;
-            height: 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #007BFF;
-            color: white;
-            text-align: center;
-            font-size: 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            text-decoration: none;
-            font-weight: bold;
-            position: fixed;
-            left: 50%; /* Center horizontally */
-            transform: translateX(-50%); /* Adjust for true center */
-            bottom: 20px; /* Adjust as needed */
-        }
-        .go-back-box:hover {
-            background-color: #0056b3;
-        }
-        .graph-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            margin-top: 20px;
         }
 
-        .graph {
-            margin: 20px;
-            border: 1px solid #ccc;
+        .container {
+            max-width: 800px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .box {
+            display: inline-block;
+            width: 200px;
+            height: 100px;
+            margin: 30px;
+            padding: 20px;
+            background-color: rgba(188, 181, 176, 0.8);
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            line-height: 40px;
+            font-size: 18px;
+            text-decoration: none;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
+
+        .box:hover {
+            background-color: #C8102E;
+        }
+        
     </style>
 </head>
 <body>
-  
-     <div class="graph-container">
-        <div class="graph">
-            <a href="page1.html">
-                <img src="Nashville-SC-Partner-Hoffman-Brothers-768x340.png" alt="Graph 1" width="600" height="400">
-            </a>
-        </div>
-        <div class="graph">
-            <a href="page2.html">
-                <img src="st.louis_cardinals.png" alt="Graph 2" width="600" height="400">
-            </a>
-        </div>
+    <div class="container">
+       
+        <a href="index.html" class="box">Web Traffic in Relation to Temperature</a>
+        <a href="heatmap.html" class="box">Heat Map</a>
+        <a href="Google_reviews.html" class="box">Google Review</a>
+        <a href="Jobs_completed.html" class="box">Jobs Completed</a>
+        <a href="call_volumn_prediction.html" class="box">Call Volumn Prediction</a>
+        <a href="AI&Fun.html" class="box">AI & Fun</a>
+        <a href="Brand Recoginition.html" class="box">Brand Recoginition: Nashville Soccer Club Servey</a>
+        <a href="Nashville_TV_Advertisment Efficiency.html" class="box">Nashville TV Advertisment Efficiency Analysis</a>
     </div>
-        <div class="container">
-        <a href="page1.html" class="box">Nashville</a>
-        <a href="page2.html" class="box">St.Louis</a>
-    </div>
-        <a href="projects.html" class="go-back-box">Go Back to Project</a>
 </body>
 </html>
+
