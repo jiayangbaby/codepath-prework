@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 1500px;
+            margin: auto;
+        }
+        .text-box {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+        }
+        .graphs {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .graph {
+            width: 100%;
+            height: 800px;
+            background-color: #ddd;
+        }iframe {
+            width: 100%;
+            height: 70vh;
+            border: none;
+        }
+        .button-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .back-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Nashville Users, Engaged Sessions, and Key Events in relation to Web Sources & Temperature</h1>
+        <a href="Nashville Web Visits.pdf" class="box">Nashville Web Visits PDF Report</a>
+        
+        <div class="graphs">
+            
+            <iframe src="NVL_Users_DM.html"></iframe>
+            <iframe src="NVL_users.html"></iframe>
+            <iframe src="NVL_Sessions_DM.html"></iframe>
+            <iframe src="NVL_engaged_sessions.html"></iframe>
+            <iframe src="NVL_Key_events_DM.html"></iframe>
+            <iframe src="NVL_Key_events.html"></iframe>
+        </div>
+        <div class="button-container">
+            <a href="index.html" class="back-button">Go Back to Homepage</a>
+        </div>
+    </div>
+</body>
+</html>
