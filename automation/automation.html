@@ -16,7 +16,7 @@
 
         .top-bar {
             width: 100%;
-            padding: 10px;
+            padding: 1px;
             background-color: #ebdbdb;
             color: white;
             text-align: left;
@@ -24,6 +24,7 @@
             position: fixed;
             top: 0;
             left: 0;
+            z-index: 10;
         }
 
         .top-bar a {
@@ -44,6 +45,7 @@
             display: flex;
             flex: 1;
             margin-top: 50px; /* Adjusted for fixed top bar */
+            flex-direction: row;
         }
 
         .left-panel {
@@ -104,6 +106,39 @@
             max-width: 600px; /* Adjust as needed */
             height: auto;
         }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .description {
+                max-height: none; /* Allow the description to take its natural height */
+            }
+
+            .left-panel {
+                width: 100%;
+                order: 3; /* Move the left panel below the video on small screens */
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .video-container {
+                order: 2; /* Move video below description */
+                padding: 10px;
+            }
+
+            .top-bar {
+                order: 4; /* Move the "Go Back" button to the bottom on small screens */
+                background-color: #007BFF;
+            }
+
+            .top-bar a {
+                margin: 0 auto;
+                display: block;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -111,37 +146,33 @@
         <a href="../html%20files/projects.html" class="go-back-button">Go Back to Projects</a>
     </div>
     <div class="container">
+        <div class="description">
+            <h3>Project Overview</h3>
+            <p>Automated web searches and scraping processes using Selenium 
+            and ChromeDriver to collect square footage information for thousands 
+            of industrial addresses from the St. Louis Address & Property Search 
+            Website and Regrid.com. Stored the data in CSV/Excel files. Here is a 
+            video for my automation project. I put 3 seconds of sleep time at the 
+            end of each search to see what's going on. In practice, I can delete 
+            those sleep times, and the program can run very fast. The sqft info 
+            is not displayed because of the small left-hand side window but the 
+            program can scrape it by reading the html code.</p>
+        </div>
+        <div class="video-container">
+            <video controls>
+                <source src="regrid_automation.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
         <div class="left-panel">
             <h3>Scraped Datasets</h3>
-            <!-- Example buttons linking to Google Sheets data -->
             <a href="https://docs.google.com/spreadsheets/d/1wRB7ClGVyjAft2hPyODwpG8MbuRDGI_YTNQEd9_psIE/edit?usp=sharing" target="_blank">Commercial One Service Line 1</a>
             <a href="https://docs.google.com/spreadsheets/d/1uTfAPxiE_7YU5r3knFnf8iNuyqdt75wyVWYX6CkTMuk/edit?usp=sharing" target="_blank">Commercial One Service Line 2 (St.Louis)</a>
             <a href="https://example.com/sheet3" target="_blank">Commercial HAVC Non Members 1</a>
             <a href="https://docs.google.com/spreadsheets/d/1UIp6jYTXfRmSeBtun7BA5QBwqSM0R62hgbUkzx5LzHo/edit?usp=sharing" target="_blank">Commercial HAVC Non Members 2 (St.Louis)</a>
-
-        </div>
-
-        <div class="right-panel">
-            <div class="description">
-                <h3>Project Overview</h3>
-                <p>Automated web searches and scraping processes using Selenium 
-                and ChromeDriver to collect square footage information for thousands 
-                of industrial addresses from the St. Louis Address & Property Search 
-                Website and Regrid.com. Stored the data in CSV/Excel files. Here is a 
-                video for my automation project. I put 3 seconds of sleep time at the 
-                end of each search to see what's going on. In practice, I can delete 
-                those sleep times, and the program can run very fast. The sqft info 
-                is not displayed because of the small left-hand side window but the 
-                program can scrape it by reading the html code.</p>
-            </div>
-            <div class="video-container">
-                <video controls>
-                    <source src="regrid_automation.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
         </div>
     </div>
 </body>
 </html>
+
 
