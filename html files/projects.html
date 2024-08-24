@@ -9,9 +9,8 @@
             margin: 0;
             font-family: Arial, sans-serif;
             height: 100vh;
-            overflow-y: auto; /* Enable vertical scrolling */
+            overflow: hidden;
             text-align: center;
-            background-color: #f0f0f0;
         }
 
         .background {
@@ -29,7 +28,7 @@
                 background-image: url('hoffmann_nashville.jpeg');
             }
             50% {
-                background-image: url('picture2.jpeg'); /* Replace with the actual path of the second image */
+                background-image: url('picture2.jpeg');
             }
             100% {
                 background-image: url('hoffmann_nashville.jpeg');
@@ -38,18 +37,19 @@
 
         .container {
             max-width: 1000px;
-            height: auto; /* Adjust to allow content height to grow */
-            margin: 20px auto; /* Add margin for spacing */
+            height: 80vh;
+            margin: auto;
             padding: 20px;
             background-color: rgba(255, 255, 255, 0.603);
             border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 columns */
-            grid-template-rows: repeat(5, 1fr); /* 5 rows */
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(5, 1fr);
             gap: 20px;
             justify-content: center;
             align-items: center;
+            overflow-y: auto; /* Enable vertical scrolling */
         }
 
         .box {
@@ -91,22 +91,26 @@
         }
 
         @media (max-width: 768px) {
+            .background {
+                display: none; /* Remove background image on small screens */
+            }
+
             .container {
+                background-color: rgba(181, 233, 241, 0.5); /* Change the window to transparent red */
                 grid-template-columns: 1fr; /* Stack boxes on smaller screens */
-                grid-template-rows: repeat(10, 1fr); /* Adjust rows for all boxes */
-                max-width: 90%; /* Adjust container size on small screens */
-                gap: 15px; /* Reduce gap between boxes */
-                padding: 10px; /* Adjust padding for smaller screens */
+                grid-template-rows: repeat(10, 1fr);
+                max-width: 90%;
+                height: auto; /* Adjust container height for scrolling */
+                overflow-y: auto; /* Enable scrolling */
             }
 
             .box {
-                padding: 15px; /* Reduce padding for smaller screens */
-                font-size: 14px; /* Reduce font size */
+                font-size: 16px;
+                padding: 10px; /* Make each button smaller */
             }
 
-            .back-button {
-                font-size: 14px; /* Reduce font size for back button */
-                padding: 8px 16px; /* Adjust padding for smaller screens */
+            body {
+                overflow-y: auto; /* Ensure body can scroll on small screens */
             }
         }
     </style>
@@ -122,12 +126,13 @@
         <a href="../JobsCompleted/Jobs_completed.html" class="box">Jobs Completed</a>
         <a href="../prediction/callVolumePrediction.html" class="box">Call Volume Prediction</a>
         <a href="AI&Fun.html" class="box">AI & Fun</a>
-        <a href="Brand Recoginition.html" class="box">Brand Recognition: Nashville Soccer Club Survey</a>
-        <a href="Nashville_TV_Advertisment Efficiency.html" class="box">Nashville TV Advertisement Efficiency Analysis</a>
+        <a href="Brand Recoginition.html" class="box">Brand Recoginition: Nashville Soccer Club Survey</a>
+        <a href="Nashville_TV_Advertisment Efficiency.html" class="box">Nashville TV Advertisment Efficiency Analysis</a>
     </div>
     <div class="button-container">
         <a href="../index.html" class="back-button">Go Back to Entry Page</a>
     </div>
 </body>
 </html>
+
 
