@@ -6,49 +6,73 @@
     <title>St. Louis Project</title>
     <style>
         body {
-            background-image: url('hoffmann_nashville.jpeg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
-            height: 100vh;
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 20px;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            overflow: hidden;
             text-align: center;
+        }
+
+        .background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            animation: backgroundChange 20s infinite;
+            background-size: cover;
+            background-position: center;
+        }
+
+        @keyframes backgroundChange {
+            0% {
+                background-image: url('hoffmann_nashville.jpeg');
+            }
+            50% {
+                background-image: url('St.louis_hoffmann.jpg'); /* Replace with the actual path of the second image */
+            }
+            100% {
+                background-image: url('hoffmann_nashville.jpeg');
+            }
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1000px; /* Increase the size of the white window */
+            height: 80vh; /* Adjust height to accommodate more content */
             margin: auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.603);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+            grid-template-columns: repeat(2, 1fr); /* 2 columns */
+            grid-template-rows: repeat(5, 1fr); /* 5 rows */
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
         }
 
         .box {
-            display: inline-block;
-            width: 200px;
-            height: 100px;
-            margin: 30px;
             padding: 20px;
-            background-color: rgba(188, 181, 176, 0.8);
+            background-color: rgba(188, 181, 176, 0.893);
             color: white;
             font-weight: bold;
             text-align: center;
-            line-height: 40px;
             font-size: 18px;
             text-decoration: none;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
         }
 
         .box:hover {
             background-color: #C8102E;
         }
+
         .button-container {
             margin: 20px 0;
             text-align: center;
         }
+
         .back-button {
             padding: 10px 20px;
             font-size: 16px;
@@ -60,27 +84,40 @@
             text-decoration: none;
             display: inline-block;
         }
+
         .back-button:hover {
             background-color: #0056b3;
         }
-        
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr; /* Stack boxes on smaller screens */
+                grid-template-rows: repeat(8, 1fr); /* 8 rows */
+                max-width: 90%; /* Adjust container size on small screens */
+            }
+
+            .box {
+                font-size: 16px;
+            }
+        }
     </style>
 </head>
 <body>
+    <div class="background"></div>
     <div class="container">
-       
+        <a href="../automation/automation.html" class="box">Automation & Web Scraping</a>
         <a href="select_location.html" class="box">Web Traffic in Relation to Temperature</a>
-        <a href="heatmap.html" class="box">Heat Map</a>
-        <a href="Google_reviews.html" class="box">Google Review</a>
-        <a href="Jobs_completed.html" class="box">Jobs Completed</a>
-        <a href="call_volumn_prediction.html" class="box">Call Volumn Prediction</a>
+        <a href="../zipcode_map/zipcode_map.html" class="box">Zipcode Map for New Customers</a>
+        <a href="../heatmap/heatmap.html" class="box">Heat Map</a>
+        <a href="../GoogleReview/ReviewCategory.html" class="box">Google Review</a>
+        <a href="../JobsCompleted/Jobs_completed.html" class="box">Jobs Completed</a>
+        <a href="../prediction/callVolumePrediction.html" class="box">Call Volumn Prediction</a>
         <a href="AI&Fun.html" class="box">AI & Fun</a>
         <a href="Brand Recoginition.html" class="box">Brand Recoginition: Nashville Soccer Club Servey</a>
         <a href="Nashville_TV_Advertisment Efficiency.html" class="box">Nashville TV Advertisment Efficiency Analysis</a>
     </div>
     <div class="button-container">
-        <a href="index.html" class="back-button">Go Back to Entry Page</a>
+        <a href="../index.html" class="back-button">Go Back to Entry Page</a>
     </div>
 </body>
 </html>
-

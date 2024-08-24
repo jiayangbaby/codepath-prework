@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedded Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #f9f9f9;
+        }
+
+        .top-bar {
+            width: 100%;
+            padding: 10px 20px;
+            background-color: #727b73;
+            color: white;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .text-box {
+            flex: 1;
+            font-size: 18px;
+            color: white;
+            padding: 10px 20px;
+            background-color: #6c757d;
+        }
+
+        .go-back-button {
+            margin-right: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .go-back-button:hover {
+            background-color: #0056b3;
+        }
+
+        .embedded-container {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        .embedded-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <a href="ReviewCategory.html" class="go-back-button">Go Back</a>
+        <div class="text-box">
+            Project Overview: Normalized and vectorized raw data during
+            a text mining project for Google Review, calculated perplexity
+            scores for different Latent Dirichlet Allocation models to select
+            the best one for each star-rating. Categorized each Google Review
+            within the same star-rating into different topics in the best model.
+            Gave each topic meaning by summarizing unique and relevant words, 
+            so readers can understand the main complaints for one-star reviews
+            or common compliments for five-star reviews. (Keep Scrolling)
+        </div>
+    </div>
+
+    <div class="embedded-container">
+        <iframe src="9k_review.html"></iframe>
+    </div>
+</body>
+</html>
