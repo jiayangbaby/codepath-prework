@@ -9,8 +9,9 @@
             margin: 0;
             font-family: Arial, sans-serif;
             height: 100vh;
-            overflow: hidden;
             text-align: center;
+            position: relative;
+            overflow-x: hidden; /* Hide horizontal overflow */
         }
 
         .background {
@@ -37,19 +38,14 @@
 
         .container {
             max-width: 1000px;
-            height: 80vh;
             margin: auto;
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.603);
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: repeat(5, 1fr);
             gap: 20px;
             justify-content: center;
             align-items: center;
-            overflow-y: auto; /* Enable vertical scrolling */
         }
 
         .box {
@@ -90,33 +86,130 @@
             background-color: #0056b3;
         }
 
+        .floating-element {
+            position: absolute;
+            background-color: rgba(103, 231, 44, 0.7);
+            border-radius: 50%;
+            animation: float 15s infinite ease-in-out;
+            opacity: 0.6;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0);
+            }
+            50% {
+                transform: translateY(-100px) translateX(100px);
+            }
+            100% {
+                transform: translateY(0) translateX(0);
+            }
+        }
+
         @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0; /* Light grey background color for small screens */
+                height: auto; /* Adjust height to auto for scrolling */
+                overflow-y: auto; /* Enable vertical scrolling */
+            }
+
             .background {
-                display: none; /* Remove background image on small screens */
+                display: none; /* Hide background images on small screens */
             }
 
             .container {
-                background-color: rgba(181, 233, 241, 0.5); /* Change the window to transparent red */
-                grid-template-columns: 1fr; /* Stack boxes on smaller screens */
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
                 grid-template-rows: repeat(10, 1fr);
-                max-width: 90%;
-                height: auto; /* Adjust container height for scrolling */
-                overflow-y: auto; /* Enable scrolling */
+                gap: 20px;
+                max-width: 100%;
+                padding-bottom: 50px; /* Added padding for bottom spacing */
             }
 
             .box {
-                font-size: 16px;
-                padding: 10px; /* Make each button smaller */
+                font-size: 14px;
+                padding: 15px;
+                background-color: rgba(188, 181, 176, 0.8);
             }
 
-            body {
-                overflow-y: auto; /* Ensure body can scroll on small screens */
+            .floating-element {
+                width: 15px;
+                height: 15px;
+            }
+
+            .floating-element.triangle {
+                border-radius: 0;
+                width: 0;
+                height: 0;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                border-bottom: 15px solid rgba(236, 225, 20, 0.7);
+            }
+
+            /* Add more floating elements */
+            .floating-element:nth-child(1) {
+                top: 20%;
+                left: 10%;
+                animation-duration: 12s;
+            }
+
+            .floating-element:nth-child(2) {
+                top: 40%;
+                left: 30%;
+                animation-duration: 18s;
+            }
+
+            .floating-element:nth-child(3) {
+                top: 60%;
+                left: 50%;
+                animation-duration: 14s;
+            }
+
+            .floating-element:nth-child(4) {
+                top: 80%;
+                left: 70%;
+                animation-duration: 20s;
+            }
+
+            .floating-element:nth-child(5) {
+                top: 10%;
+                left: 90%;
+                animation-duration: 16s;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .background-image-1 {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 50%;
+                height: 100%;
+                background-image: url('hoffmann_nashville.jpeg');
+                background-size: cover;
+                background-position: center;
+                z-index: -1;
+            }
+
+            .background-image-2 {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 50%;
+                height: 100%;
+                background-image: url('picture2.jpeg');
+                background-size: cover;
+                background-position: center;
+                z-index: -1;
             }
         }
     </style>
 </head>
 <body>
-    <div class="background"></div>
+    <!-- Background images for large screens -->
+    <div class="background-image-1"></div>
+    <div class="background-image-2"></div>
+
     <div class="container">
         <a href="../automation/automation.html" class="box">Automation & Web Scraping</a>
         <a href="select_location.html" class="box">Web Traffic in Relation to Temperature</a>
@@ -132,7 +225,15 @@
     <div class="button-container">
         <a href="../index.html" class="back-button">Go Back to Entry Page</a>
     </div>
+
+    <!-- Floating elements for small screens -->
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
 </body>
 </html>
+
 
 
