@@ -9,8 +9,9 @@
             margin: 0;
             font-family: Arial, sans-serif;
             height: 100vh;
-            overflow: hidden;
+            overflow-y: auto; /* Enable vertical scrolling */
             text-align: center;
+            background-color: #f0f0f0;
         }
 
         .background {
@@ -36,9 +37,9 @@
         }
 
         .container {
-            max-width: 1000px; /* Increase the size of the white window */
-            height: 80vh; /* Adjust height to accommodate more content */
-            margin: auto;
+            max-width: 1000px;
+            height: auto; /* Adjust to allow content height to grow */
+            margin: 20px auto; /* Add margin for spacing */
             padding: 20px;
             background-color: rgba(255, 255, 255, 0.603);
             border-radius: 15px;
@@ -91,13 +92,21 @@
 
         @media (max-width: 768px) {
             .container {
-                grid-template-columns: 2fr; /* Stack boxes on smaller screens */
-                grid-template-rows: repeat(5, 2fr); /* 8 rows */
+                grid-template-columns: 1fr; /* Stack boxes on smaller screens */
+                grid-template-rows: repeat(10, 1fr); /* Adjust rows for all boxes */
                 max-width: 90%; /* Adjust container size on small screens */
+                gap: 15px; /* Reduce gap between boxes */
+                padding: 10px; /* Adjust padding for smaller screens */
             }
 
             .box {
-                font-size: 16px;
+                padding: 15px; /* Reduce padding for smaller screens */
+                font-size: 14px; /* Reduce font size */
+            }
+
+            .back-button {
+                font-size: 14px; /* Reduce font size for back button */
+                padding: 8px 16px; /* Adjust padding for smaller screens */
             }
         }
     </style>
@@ -111,13 +120,14 @@
         <a href="../heatmap/heatmap.html" class="box">Heat Map</a>
         <a href="../GoogleReview/ReviewCategory.html" class="box">Google Review</a>
         <a href="../JobsCompleted/Jobs_completed.html" class="box">Jobs Completed</a>
-        <a href="../prediction/callVolumePrediction.html" class="box">Call Volumn Prediction</a>
+        <a href="../prediction/callVolumePrediction.html" class="box">Call Volume Prediction</a>
         <a href="AI&Fun.html" class="box">AI & Fun</a>
-        <a href="Brand Recoginition.html" class="box">Brand Recoginition: Nashville Soccer Club Servey</a>
-        <a href="Nashville_TV_Advertisment Efficiency.html" class="box">Nashville TV Advertisment Efficiency Analysis</a>
+        <a href="Brand Recoginition.html" class="box">Brand Recognition: Nashville Soccer Club Survey</a>
+        <a href="Nashville_TV_Advertisment Efficiency.html" class="box">Nashville TV Advertisement Efficiency Analysis</a>
     </div>
     <div class="button-container">
         <a href="../index.html" class="back-button">Go Back to Entry Page</a>
     </div>
 </body>
 </html>
+
