@@ -38,12 +38,12 @@
         .container {
             max-width: 1200px;
             margin: 70px auto 20px;
+            
         }
 
         .text-box {
             margin-bottom: 20px;
             padding: 15px;
-            border: 1px solid #ccc;
             background-color: #f9f9f9;
             text-align: left;
         }
@@ -71,7 +71,7 @@
             background-color: #dc1010;
         }
 
-        .pdf-container {
+        .map-container {
             width: 100%;
             height: 600px;
             border: 1px solid #ccc;
@@ -98,31 +98,37 @@
                 font-size: 14px;
             }
 
-            .pdf-container {
+            .map-container {
                 height: 400px;
             }
         }
     </style>
+    <script>
+        function loadMap(mapFile) {
+            document.getElementById('mapFrame').src = mapFile;
+        }
+    </script>
 </head>
-
 <body>
     <div class="top-bar">
-        <a href="../html%20files/projects.html" class="go-back-button">Go Back to Projects</a>
+        <a href="../html%20files/projects.html">Go Back to Projects</a>
     </div>
 
     <div class="container">
-        <h2>Other Projects</h2>
+        <h2>Heat Map for 2023 and 2024 New Customers With One Job Completed</h2>
+    
         <div class="text-box">
-            <p>There are 3 project reports</p>
+            <p>Given customer addresses, plot them out on the map.</p>
         </div>
 
         <div class="buttons-container">
-            <a href="Customers Jobs Completed.pdf" class="button" target="pdf-viewer">Number of Jobs Completed for Customers</a>
-            <a href="Business Unit Jobs Completed.pdf" class="button" target="pdf-viewer">Number of Jobs Completed for each Business Unit</a>
+            <a href="#" class="button" onclick="loadMap('heatmap_street.html')">Experiment Using Test Data</a>
+            <a href="#" class="button" onclick="loadMap('heatmap_STL_oneJob_new.html')">2023 & 2024 One Job Completed New Customer in St.Louis Heat Map</a>
+            <a href="#" class="button" onclick="loadMap('map3.html')">2023 (Blue) & 2024 (Red) One Job Completed New Customer in St.Louis Dot Map</a>
         </div>
 
-        <div class="pdf-container">
-            <iframe name="pdf-viewer"></iframe>
+        <div class="map-container">
+            <iframe id="mapFrame" src="heatmap_street.html"></iframe>
         </div>
     </div>
 </body>

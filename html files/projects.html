@@ -12,44 +12,55 @@
             text-align: center;
             position: relative;
             overflow-x: hidden; /* Hide horizontal overflow */
+            padding: 0;
+            background-color: #313030; /* Dark background color */
+            color: #e0e0e0; /* Light text color */
+            display: flex;
+            flex-direction: column;
         }
-
+        .button-container_mouse {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 10; /* Ensure buttons are above other content */
+        }
+        .button_mouse {
+            margin: 5px;
+            padding: 10px;
+            background-color: #e75656; /* Dark grey button background */
+            border: none;
+            border-radius: 5px;
+            color: #e0e0e0; /* Light text color on buttons */
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button_mouse:hover {
+            background-color: #c43f3f; /* Darker red on hover */
+        }
         .background {
             position: absolute;
             width: 100%;
             height: 100%;
             z-index: -1;
-            animation: backgroundChange 20s infinite;
+            background-image: url('picture2.jpeg');
             background-size: cover;
             background-position: center;
         }
-
-        @keyframes backgroundChange {
-            0% {
-                background-image: url('hoffmann_nashville.jpeg');
-            }
-            50% {
-                background-image: url('picture2.jpeg');
-            }
-            100% {
-                background-image: url('hoffmann_nashville.jpeg');
-            }
-        }
-
         .container {
             max-width: 1000px;
             margin: auto;
-            padding: 20px;
+            padding: 53px;
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(5, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(1, 1fr);
+            grid-template-rows: repeat(7, 1fr);
+            gap: 2px;
             justify-content: center;
             align-items: center;
+            margin: 10px;
         }
-
         .box {
-            padding: 20px;
+            padding: 53px;
             background-color: rgba(188, 181, 176, 0.893);
             color: white;
             font-weight: bold;
@@ -60,18 +71,19 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: background-color 0.3s;
         }
-
         .box:hover {
             background-color: #C8102E;
         }
-
         .button-container {
-            margin: 20px 0;
+            margin: -5px ;
             text-align: center;
+            z-index: 10;
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
         }
-
         .back-button {
-            padding: 10px 20px;
+            padding: 10px 10px;
             font-size: 16px;
             color: white;
             background-color: #007BFF;
@@ -81,159 +93,160 @@
             text-decoration: none;
             display: inline-block;
         }
-
         .back-button:hover {
             background-color: #0056b3;
         }
-
-        .floating-element {
+        .bubble, .butterfly {
             position: absolute;
-            background-color: rgba(103, 231, 44, 0.7);
             border-radius: 50%;
-            animation: float 15s infinite ease-in-out;
-            opacity: 0.6;
+            pointer-events: none;
+            mix-blend-mode: screen;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+            z-index: 5; /* Ensure bubbles/butterflies are above the background but below other content */
         }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0) translateX(0);
-            }
-            50% {
-                transform: translateY(-100px) translateX(100px);
-            }
-            100% {
-                transform: translateY(0) translateX(0);
-            }
+        .white-bubble {
+            background-color: rgba(255, 255, 255, 0.5);
         }
-
+        .pink-bubble {
+            background-color: rgba(255, 192, 203, 0.7); /* Light pink color */
+        }
+        .butterfly {
+            background-image: url('butterfly.png'); /* Replace with the path to your butterfly image */
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 30px;
+            height: 30px;
+        }
         @media (max-width: 768px) {
             body {
-                background-color: #f0f0f0; /* Light grey background color for small screens */
+                background-color: #332d2d; /* Light grey background color for small screens */
                 height: auto; /* Adjust height to auto for scrolling */
                 overflow-y: auto; /* Enable vertical scrolling */
             }
-
-            .background {
-                display: none; /* Hide background images on small screens */
+            
             }
-
             .container {
                 display: grid;
                 grid-template-columns: repeat(1, 1fr);
-                grid-template-rows: repeat(10, 1fr);
+                grid-template-rows: repeat(7, 1fr);
                 gap: 20px;
                 max-width: 100%;
                 padding-bottom: 50px; /* Added padding for bottom spacing */
             }
-
             .box {
                 font-size: 14px;
                 padding: 15px;
                 background-color: rgba(188, 181, 176, 0.8);
             }
-
-            .floating-element {
-                width: 15px;
-                height: 15px;
+            .flower {
+                position: absolute;
+                width: 50px;
+                height: 50px;
+                clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+                z-index: 0; /* Ensure flowers are at the bottom */
+                animation: float 5s linear infinite;
             }
-
-            .floating-element.triangle {
-                border-radius: 0;
-                width: 0;
-                height: 0;
-                border-left: 10px solid transparent;
-                border-right: 10px solid transparent;
-                border-bottom: 15px solid rgba(236, 225, 20, 0.7);
-            }
-
-            /* Add more floating elements */
-            .floating-element:nth-child(1) {
+            .flower:nth-child(1) {
                 top: 20%;
                 left: 10%;
-                animation-duration: 12s;
+                background-color: rgba(255, 0, 0, 0.5); /* Red color with some transparency */
+                animation-delay: 0s;
             }
-
-            .floating-element:nth-child(2) {
+            .flower:nth-child(2) {
                 top: 40%;
                 left: 30%;
-                animation-duration: 18s;
+                background-color: rgba(255, 255, 0, 0.5);
+                animation-delay: 1s;
             }
-
-            .floating-element:nth-child(3) {
+            .flower:nth-child(3) {
                 top: 60%;
                 left: 50%;
-                animation-duration: 14s;
+                background-color: rgba(0, 255, 0, 0.5);
+                animation-delay: 2s;
             }
-
-            .floating-element:nth-child(4) {
+            .flower:nth-child(4) {
                 top: 80%;
                 left: 70%;
-                animation-duration: 20s;
+                background-color: rgba(0, 255, 255, 0.5);
+                animation-delay: 3s;
             }
-
-            .floating-element:nth-child(5) {
-                top: 10%;
+            .flower:nth-child(5) {
+                top: 50%;
                 left: 90%;
-                animation-duration: 16s;
+                background-color: rgba(0, 123, 255, 0.5);
+                animation-delay: 4s;
             }
-        }
-
-        @media (min-width: 769px) {
-            .background-image-1 {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 50%;
-                height: 100%;
-                background-image: url('hoffmann_nashville.jpeg');
-                background-size: cover;
-                background-position: center;
-                z-index: -1;
+            @keyframes float {
+                0% {
+                    transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(-20px);
+                }
+                100% {
+                    transform: translateY(0);
+                }
             }
-
-            .background-image-2 {
-                position: absolute;
-                top: 0;
-                right: 0;
-                width: 50%;
-                height: 100%;
-                background-image: url('picture2.jpeg');
-                background-size: cover;
-                background-position: center;
-                z-index: -1;
-            }
-        }
+        
     </style>
 </head>
 <body>
-    <!-- Background images for large screens -->
-    <div class="background-image-1"></div>
-    <div class="background-image-2"></div>
-
+    <div class="button-container_mouse">
+        <button class="button_mouse" id="circleButton">Circle</button>
+        <button class="button_mouse" id="butterflyButton">Butterfly</button>
+    </div>
+    <div class="background"></div>
     <div class="container">
         <a href="../automation/automation.html" class="box">Automation & Web Scraping</a>
         <a href="page1.html" class="box">Web Traffic in Relation to Temperature</a>
         <a href="../zipcode_map/zipcode_map.html" class="box">Zipcode Map for New Customers</a>
         <a href="../heatmap/heatmap.html" class="box">Heat Map</a>
         <a href="../GoogleReview/ReviewCategory.html" class="box">Google Review</a>
-        <a href="../JobsCompleted/Jobs_completed.html" class="box">Jobs Completed</a>
         <a href="../prediction/callVolumePrediction.html" class="box">Call Volume Prediction</a>
-        <a href="AI&Fun.html" class="box">AI & Fun</a>
-        <a href="Brand Recoginition.html" class="box">Brand Recoginition: Nashville Soccer Club Survey</a>
-        <a href="Nashville_TV_Advertisment Efficiency.html" class="box">Nashville TV Advertisment Efficiency Analysis</a>
+        <a href="Other_Projects.html" class="box">Other Projects</a>
+    </div>
+    </div>
     </div>
     <div class="button-container">
         <a href="../index.html" class="back-button">Go Back to Entry Page</a>
     </div>
+    <script>
+        const container = document.querySelector('.container');
+        let currentMode = 'circle';
 
-    <!-- Floating elements for small screens -->
-    <div class="floating-element"></div>
-    <div class="floating-element"></div>
-    <div class="floating-element"></div>
-    <div class="floating-element"></div>
-    <div class="floating-element"></div>
+        document.getElementById('circleButton').addEventListener('click', () => {
+            currentMode = 'circle';
+        });
+
+        document.getElementById('butterflyButton').addEventListener('click', () => {
+            currentMode = 'butterfly';
+        });
+
+        document.body.addEventListener('mousemove', function(e) {
+            const element = document.createElement('div');
+            element.className = currentMode === 'circle' ? 'bubble' : 'butterfly';
+
+            if (currentMode === 'circle') {
+                element.classList.add('white-bubble');
+                const size = Math.random() * 30 + 20;
+                element.style.width = `${size}px`;
+                element.style.height = `${size}px`;
+            } else {
+                element.classList.add('butterfly');
+                element.style.width = '30px';
+                element.style.height = '30px';
+            }
+
+            element.style.left = `${e.pageX - (currentMode === 'circle' ? 15 : 15)}px`;
+            element.style.top = `${e.pageY - (currentMode === 'circle' ? 15 : 15)}px`;
+
+            document.body.appendChild(element);
+
+            setTimeout(() => {
+                element.style.opacity = 0;
+                setTimeout(() => document.body.removeChild(element), 500);
+            }, 2000);
+        });
+    </script>
 </body>
 </html>
-
-
-
