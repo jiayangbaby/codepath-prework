@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page 1</title>
+    <title>Nashville Users, Engaged Sessions, and Key Events in relation to Web Sources & Temperature</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,67 +11,168 @@
             padding: 20px;
             background-color: #f9f9f9;
         }
+
+        .top-bar {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            text-align: left;
+            box-sizing: border-box;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .top-bar a:hover {
+            background-color: #0056b3;
+        }
+
         .container {
             max-width: 1500px;
-            margin: auto;
+            margin: 60px auto 20px;
         }
+
         .text-box {
             margin-bottom: 20px;
             padding: 10px;
             border: 1px solid #ccc;
             background-color: #fff;
         }
+
         .graphs {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             gap: 20px;
         }
-        .graph {
+
+        iframe {
             width: 100%;
-            height: 800px;
-            background-color: #ddd;
-        }iframe {
-            width: 100%;
-            height: 70vh;
+            height: 100vh;
             border: none;
         }
-        .button-container {
-            margin: 20px 0;
-            text-align: center;
+
+        .buttons-container {
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+            margin-top: 20px;
         }
-        .back-button {
-            padding: 10px 20px;
-            font-size: 16px;
+
+        .button {
+            flex: 1;
+            padding: 10px;
+            font-size: 14px;
             color: white;
-            background-color: #007BFF;
+            background-color: #ea8fcf;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            text-align: center;
             text-decoration: none;
-            display: inline-block;
         }
-        .back-button:hover {
-            background-color: #0056b3;
+
+        .button:hover {
+            background-color: #dc1010;
+        }
+
+        .graph-container {
+            margin-top: 20px;
+            width: 100%;
+            height: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .graphs {
+                display: flex;
+                flex-direction: row;
+                gap: 20px;
+        }
+            .container {
+                margin: 70px auto 20px;
+                position: relative; /* Ensure the container is relative for centering */
+                text-align: center; /* Center text-box content */
+            }
+
+
+            iframe {
+                width: 200vh; /* Adjust width to fit within the viewport */
+                height: 90vh; /* Adjust height to fit within the viewport */
+                
+                transform-origin: center; /* Set the origin of rotation to the center */
+                
+            }
+
+            .buttons-container {
+                flex-direction: column;
+            }
+
+            .button {
+                font-size: 12px;
+                margin-bottom: 10px;
+            }
+
+            .text-box {
+                font-size: smaller;
+            }
+            .graph-container {
+                margin-top: 20px;
+                width: 100%;
+                height: 100%;
+        }
+            
         }
     </style>
 </head>
 <body>
+    <div class="top-bar">
+        <a href="projects.html">Go Back to Projects</a>
+    </div>
+
     <div class="container">
-        <h1>Nashville Users, Engaged Sessions, and Key Events in relation to Web Sources & Temperature</h1>
-        <a href="Nashville Web Visits.pdf" class="box">Nashville Web Visits PDF Report</a>
-        
-        <div class="graphs">
-            
-            <iframe src="NVL_Users_DM.html"></iframe>
-            <iframe src="NVL_users.html"></iframe>
-            <iframe src="NVL_Sessions_DM.html"></iframe>
-            <iframe src="NVL_engaged_sessions.html"></iframe>
-            <iframe src="NVL_Key_events_DM.html"></iframe>
-            <iframe src="NVL_Key_events.html"></iframe>
+        <h2>Nashville Users, Engaged Sessions, and Key Events in relation to Web Sources & Temperature</h2>
+
+        <div class="text-box">
+            <h4>Project Overview</h4>
+            <p>Pull data from Google Analytics, investigated the relationship 
+                between Temperature and Website Traffic over time and the key 
+                reasons that bring more customers to the website. The graphs 
+                are interactive. When you click Daily, the daily results will 
+                show up, and when you click Monthly, monthly data will show up. 
+                For the right-hand side legend bar, double click to select just 
+                one legend, and double click to unselect. If you want to hide one 
+                legend, single click it. Moreover, you can magnify an area on the 
+                graph by dragging a window on it. Finally, click the little house  
+                symbol on the top right to restore the original graph. (If you view
+                it on your phone, please swipe left to see the entire graph. You can
+                drag the end of x-axis to the left to narrow the graph.)</p>
         </div>
-        <div class="button-container">
-            <a href="projects.html" class="back-button">Go Back to Projects</a>
+
+        <div class="buttons-container">
+            <a href="#" class="button" onclick="loadGraph('NVL_Users_DM.html')">Daily Users</a>
+            <a href="#" class="button" onclick="loadGraph('NVL_users.html')">Monthly Users</a>
+            <a href="#" class="button" onclick="loadGraph('NVL_Sessions_DM.html')">Daily Sessions</a>
+            <a href="#" class="button" onclick="loadGraph('NVL_engaged_sessions.html')">Monthly Sessions</a>
+        </div>
+        <div class="graph-container">
+            <iframe id="graph-frame" src="NVL_Users_DM.html"></iframe>
         </div>
     </div>
+
+    <script>
+        function loadGraph(graphUrl) {
+            document.getElementById('graph-frame').src = graphUrl;
+        }
+    </script>
 </body>
 </html>
+
+
+
