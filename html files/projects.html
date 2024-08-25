@@ -117,6 +117,19 @@
             width: 30px;
             height: 30px;
         }
+        .container {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                grid-template-rows: repeat(7, 1fr);
+                gap: 20px;
+                max-width: 100%;
+                padding-bottom: 50px; /* Added padding for bottom spacing */
+        }
+        .box {
+                font-size: 14px;
+                padding: 15px;
+                background-color: rgba(188, 181, 176, 0.8);
+        }
         @media (max-width: 768px) {
             body {
                 background-color: #332d2d; /* Light grey background color for small screens */
@@ -124,7 +137,6 @@
                 overflow-y: auto; /* Enable vertical scrolling */
             }
             
-            }
             .container {
                 display: grid;
                 grid-template-columns: repeat(1, 1fr);
@@ -138,55 +150,9 @@
                 padding: 15px;
                 background-color: rgba(188, 181, 176, 0.8);
             }
-            .flower {
-                position: absolute;
-                width: 50px;
-                height: 50px;
-                clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-                z-index: 0; /* Ensure flowers are at the bottom */
-                animation: float 5s linear infinite;
-            }
-            .flower:nth-child(1) {
-                top: 20%;
-                left: 10%;
-                background-color: rgba(255, 0, 0, 0.5); /* Red color with some transparency */
-                animation-delay: 0s;
-            }
-            .flower:nth-child(2) {
-                top: 40%;
-                left: 30%;
-                background-color: rgba(255, 255, 0, 0.5);
-                animation-delay: 1s;
-            }
-            .flower:nth-child(3) {
-                top: 60%;
-                left: 50%;
-                background-color: rgba(0, 255, 0, 0.5);
-                animation-delay: 2s;
-            }
-            .flower:nth-child(4) {
-                top: 80%;
-                left: 70%;
-                background-color: rgba(0, 255, 255, 0.5);
-                animation-delay: 3s;
-            }
-            .flower:nth-child(5) {
-                top: 50%;
-                left: 90%;
-                background-color: rgba(0, 123, 255, 0.5);
-                animation-delay: 4s;
-            }
-            @keyframes float {
-                0% {
-                    transform: translateY(0);
-                }
-                50% {
-                    transform: translateY(-20px);
-                }
-                100% {
-                    transform: translateY(0);
-                }
-            }
+           
+
+        }
         
     </style>
 </head>
