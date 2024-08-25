@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>St. Louis Project</title>
     <style>
         body {
@@ -17,6 +18,9 @@
             color: #e0e0e0; /* Light text color */
             display: flex;
             flex-direction: column;
+            
+            height: auto; /* Adjust height to auto for scrolling */
+            overflow-y: auto; /* Enable vertical scrolling */
         }
         .button-container_mouse {
             position: absolute;
@@ -132,7 +136,7 @@
         }
         @media (max-width: 768px) {
             body {
-                background-color: #332d2d; /* Light grey background color for small screens */
+    
                 height: auto; /* Adjust height to auto for scrolling */
                 overflow-y: auto; /* Enable vertical scrolling */
             }
