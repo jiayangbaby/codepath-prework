@@ -19,8 +19,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            height: auto; /* Adjust height to auto for scrolling */
-            overflow-y: auto; /* Enable vertical scrolling */
         }
         .button-container_mouse {
             position: absolute;
@@ -144,6 +142,12 @@
     </style>
 </head>
 <body>
+    <script>
+        // Check if the user is authenticated
+        if (localStorage.getItem('authenticated') !== 'true') {
+            window.location.href = '../index.html'; // Redirect to login page if not authenticated
+        }
+    </script>
     <!-- Video background -->
     <video autoplay muted loop>
         <source src="go_home_view.mp4" type="video/mp4">

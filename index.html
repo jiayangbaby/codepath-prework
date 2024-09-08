@@ -135,6 +135,8 @@
             const errorMessage = document.getElementById("error-message");
 
             if (userInput === correctPasscode) {
+                localStorage.setItem('authenticated', 'true');
+                //console.log("Passcode correct, redirecting to protected page.");
                 // Redirect to the "View Projects" page if passcode is correct
                 window.location.href = "html%20files/projects.html";  // Replace with your actual projects page URL
             } else {
