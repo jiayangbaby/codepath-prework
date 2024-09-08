@@ -128,20 +128,20 @@
 
     <script>
         // Replace this with your desired passcode
-        const correctPasscode = "0924"; 
+        const correctPasscode = "09240"; 
 
         function checkPasscode() {
             const userInput = document.getElementById("passcode").value;
             const errorMessage = document.getElementById("error-message");
-
             if (userInput === correctPasscode) {
-                localStorage.setItem('authenticated', 'true');
-                //console.log("Passcode correct, redirecting to protected page.");
-                // Redirect to the "View Projects" page if passcode is correct
-                window.location.href = "html%20files/projects.html";  // Replace with your actual projects page URL
+                // Set authentication flag in localStorage
+                localStorage.setItem("authenticated", "true");
+                // Redirect to the protected page
+                window.location.href = "html%20files/projects.html";
             } else {
                 errorMessage.textContent = "Incorrect passcode. Please try again.";
             }
+           
         }
         document.getElementById("passcode").addEventListener("keydown", function(event) {
             if (event.key === "Enter") {
