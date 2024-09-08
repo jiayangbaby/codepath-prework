@@ -18,7 +18,7 @@
             color: #e0e0e0; /* Light text color */
             display: flex;
             flex-direction: column;
-            
+            align-items: center;
             height: auto; /* Adjust height to auto for scrolling */
             overflow-y: auto; /* Enable vertical scrolling */
         }
@@ -47,21 +47,22 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background-image: url('picture2.jpeg');
             background-size: cover;
             background-position: center;
         }
         .container {
             max-width: 1000px;
+            width: 500px;
             margin: auto;
             padding: 53px;
             display: grid;
             grid-template-columns: repeat(1, 1fr);
             grid-template-rows: repeat(7, 1fr);
-            gap: 2px;
             justify-content: center;
             align-items: center;
             margin: 10px;
+            gap: 20px;
+            padding-bottom: 50px; /* Added padding for bottom spacing */
         }
         .box {
             padding: 53px;
@@ -121,24 +122,34 @@
             width: 30px;
             height: 30px;
         }
-        .container {
-                display: grid;
-                grid-template-columns: repeat(1, 1fr);
-                grid-template-rows: repeat(7, 1fr);
-                gap: 20px;
-                max-width: 100%;
-                padding-bottom: 50px; /* Added padding for bottom spacing */
-        }
         .box {
                 font-size: 14px;
                 padding: 15px;
                 background-color: rgba(188, 181, 176, 0.8);
+        }
+        video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+            background-size: cover;
         }
         
         
     </style>
 </head>
 <body>
+    <!-- Video background -->
+    <video autoplay muted loop>
+        <source src="go_home_view.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
     <div class="button-container_mouse">
         <button class="button_mouse" id="circleButton">Circle</button>
         <button class="button_mouse" id="butterflyButton">Butterfly</button>
@@ -191,9 +202,9 @@
             document.body.appendChild(element);
 
             setTimeout(() => {
-                element.style.opacity = 0;
-                setTimeout(() => document.body.removeChild(element), 500);
-            }, 2000);
+                element.style.opacity = 0.8;
+                setTimeout(() => document.body.removeChild(element), 200);
+            }, 300);
         });
     </script>
 </body>
