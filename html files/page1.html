@@ -152,6 +152,13 @@
     </style>
 </head>
 <body>
+    <script>
+        // Check if the user is authenticated
+        if (localStorage.getItem('authenticated') !== 'true') {
+            window.location.href = '../index.html'; // Redirect to login page if not authenticated
+        }
+    </script>
+
     <div class="top-bar">
         <a href="projects.html">Go Back to Projects</a>
     </div>
@@ -175,10 +182,6 @@
                 symbol on the top right to restore the original graph. (If you view
                 it on your phone, please swipe left to see the entire graph. You can
                 drag the end of x-axis to the left to narrow the graph.)</p>
-        </div>
-
-        <div class="pdf-link">
-            <a href="Nashville Web Visits.pdf" target="_blank">View PDF Document</a>
         </div>
 
         <div class="buttons-container">
