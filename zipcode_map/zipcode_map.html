@@ -131,6 +131,13 @@
     </style>
 </head>
 <body>
+    <script>
+        // Check if the user is authenticated
+        if (localStorage.getItem('authenticated') !== 'true') {
+            window.location.href = '../index.html'; // Redirect to login page if not authenticated
+        }
+    </script>
+    
     <div class="top-bar">
         
         <a href="Zip Code Maps 2023 and 2024 Comparison.pdf" target="_blank">View PDF With No Label</a>

@@ -71,7 +71,7 @@
 
         .video-container video {
             width: 100%;
-            max-width: 1200px; /* Increased max width */
+            max-width: 1000px; /* Increased max width */
             height: auto;
         }
 
@@ -136,6 +136,13 @@
     </style>
 </head>
 <body>
+    <script>
+        // Check if the user is authenticated
+        if (localStorage.getItem('authenticated') !== 'true') {
+            window.location.href = '../index.html'; // Redirect to login page if not authenticated
+        }
+    </script>
+
     <div class="top-bar">
         <a href="../html%20files/projects.html">Go Back to Projects</a>
     </div>
