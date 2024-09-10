@@ -110,12 +110,18 @@
     </script>
 </head>
 <body>
+    <script>
+        // Check if the user is authenticated
+        if (localStorage.getItem('authenticated') !== 'true') {
+            window.location.href = '../index.html'; // Redirect to login page if not authenticated
+        }
+    </script>
     <div class="top-bar">
         <a href="../html%20files/projects.html">Go Back to Projects</a>
     </div>
 
     <div class="container">
-        <h2>Heat Map for 2023 and 2024 New Customers With One Job Completed</h2>
+        <h2>Heat/Comparison/Zipcode Maps for 2023 and 2024 New Customers</h2>
     
         <div class="text-box">
             <p>Given customer addresses, plot them out on the map.</p>
@@ -125,6 +131,8 @@
             <a href="#" class="button" onclick="loadMap('heatmap_street.html')">Experiment Using Test Data</a>
             <a href="#" class="button" onclick="loadMap('heatmap_STL_oneJob_new.html')">2023 & 2024 One Job Completed New Customer in St.Louis Heat Map</a>
             <a href="#" class="button" onclick="loadMap('map3.html')">2023 (Blue) & 2024 (Red) One Job Completed New Customer in St.Louis Dot Map</a>
+            <a href="#" class="button" onclick="loadMap('Zip Code Maps 2023 and 2024 Comparison.pdf')">View PDF For Zipcode Maps</a>
+
         </div>
 
         <div class="map-container">

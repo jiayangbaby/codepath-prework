@@ -81,6 +81,13 @@
     </script>
 </head>
 <body>
+    <script>
+        // Check if the user is authenticated
+        if (localStorage.getItem('authenticated') !== 'true') {
+            window.location.href = '../index.html'; // Redirect to login page if not authenticated
+        }
+    <script>
+        
     <div class="sidebar">
         <button onclick="loadContent('Daily Call Volume Prediction_NVL.pdf')">Nashville Daily Call Volume Prediction</button>
         <button onclick="loadContent('call_weather_prediction.html')">Code 1</button>

@@ -115,6 +115,13 @@
 </head>
 
 <body>
+    <script>
+        // Check if the user is authenticated
+        if (localStorage.getItem('authenticated') !== 'true') {
+            window.location.href = '../index.html'; // Redirect to login page if not authenticated
+        }
+    <script>
+        
     <div class="top-bar">
         <a href="../html%20files/projects.html" class="go-back-button">Go Back to Projects</a>
     </div>
