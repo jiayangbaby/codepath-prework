@@ -128,7 +128,10 @@
 
     <script>
         
-        const password =MY_SECRET_PASSWORD;
+        const password = process.env.MY_SECRET_PASSWORD;
+
+        // Use the password in your script
+        console.log(`The secret password is ${password}`);
 
 
         function checkPasscode() {
