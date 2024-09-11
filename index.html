@@ -112,7 +112,6 @@
     </style>
 </head>
 <body>
-    <!-- Passcode Container -->
     <div class="container">
         <h2>2024 Summer Internship Projects</h2>
         <p>Jiayang W</p>
@@ -128,8 +127,9 @@
     </div>
 
     <script>
-        // Replace this with your desired passcode
-        const correctPasscode = "09240"; 
+        //const correctPasscode = "09240"; 
+        const password = process.env.MY_SECRET_PASSWORD;
+
 
         function checkPasscode() {
             const userInput = document.getElementById("passcode").value;
