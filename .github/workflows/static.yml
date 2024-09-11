@@ -44,8 +44,4 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Use Secret
-        run: |
-          echo "The secret password is ${{ secrets.MY_PASSWORD }}"
-        env:
-          MY_PASSWORD: ${{ secrets.MY_PASSWORD }}
+
