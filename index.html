@@ -129,12 +129,13 @@
     <script>
         
         const password = 1346;
+       
 
 
         function checkPasscode() {
             const userInput = document.getElementById("passcode").value;
             const errorMessage = document.getElementById("error-message");
-            if (userInput === correctPasscode) {
+            if (userInput === passcode) {
                 // Set authentication flag in localStorage
                 localStorage.setItem("authenticated", "true");
                 // Redirect to the protected page
