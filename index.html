@@ -127,30 +127,15 @@
     </div>
 
     <script>
-        
-        const password = 1346;
-       
-
-
-        function checkPasscode() {
-            const userInput = document.getElementById("passcode").value;
-            const errorMessage = document.getElementById("error-message");
-            if (userInput === passcode) {
-                // Set authentication flag in localStorage
-                localStorage.setItem("authenticated", "true");
-                // Redirect to the protected page
-                window.location.href = "html%20files/projects.html";
-            } else {
-                errorMessage.textContent = "Incorrect passcode. Please try again.";
-            }
-           
+        function redirectToProtectedPage() {
+            // Set authentication flag in localStorage
+            localStorage.setItem("authenticated", "true");
+            // Redirect to the protected page
+            window.location.href = "html%20files/projects.html";
         }
-        
-        document.getElementById("passcode").addEventListener("keydown", function(event) {
-            if (event.key === "Enter") {
-                checkPasscode();  
-            }
-        });
+
+        // Automatically redirect when the page loads or an event occurs
+        window.onload = redirectToProtectedPage;
     </script>
 
 
