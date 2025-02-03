@@ -61,6 +61,21 @@
             box-sizing: border-box;
             text-align: left;
         }
+        .video-container {
+            margin-top: 30px;
+            width: 100%;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
 
         .graphs {
             display: flex;
@@ -182,7 +197,7 @@
                 Your browser does not support the video tag.
             </video>
         </div>
-        <div class="left-panel">
+        <div class="buttons-container">
             <h3>Scraped Datasets (Link to Google Sheets)</h3>
             <a href="https://docs.google.com/spreadsheets/d/1wRB7ClGVyjAft2hPyODwpG8MbuRDGI_YTNQEd9_psIE/edit?usp=sharing" target="_blank">Commercial One Service Line 1</a>
             <a href="https://docs.google.com/spreadsheets/d/1uTfAPxiE_7YU5r3knFnf8iNuyqdt75wyVWYX6CkTMuk/edit?usp=sharing" target="_blank">Commercial One Service Line 2 (St.Louis)</a>
