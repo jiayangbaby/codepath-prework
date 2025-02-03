@@ -81,22 +81,32 @@
     </script>
 </head>
 <body>
-    <script>
-        // Check if the user is authenticated
-        if (localStorage.getItem('authenticated') !== 'true') {
-            window.location.href = '../index.html'; // Redirect to login page if not authenticated
-        }
-    </script>
-        
-    <div class="sidebar">
-        <button onclick="loadContent('Daily Call Volume Prediction_NVL.pdf')">Nashville Daily Call Volume Prediction</button>
-        <button onclick="loadContent('call_weather_prediction.html')">Code 1</button>
+    <div class="container">
+        <h2>Call Volume Prediction</h2>
+        <div class="text-box">
+            <h3>Project Overview</h3>
+            <p>
+                Utilized historical call volumes as training data to predict future volumes using fixed-effect linear and polynomial models. The model initially included 150 parameters, accounting for factors such as lagged weather, historical call data, market spending, and time. Applied LASSO (Least Absolute Shrinkage Selection Operator) to eliminate unnecessary parameters and compared the mean squared error on test data across both models.
+            </p>
+        </div>
+
+        <!-- Buttons to Load Content -->
+        <div class="buttons-container">
+            <button onclick="loadContent('Daily Call Volume Prediction_NVL.pdf')">Nashville Daily Call Volume Prediction</button>
+            <button onclick="loadContent('call_weather_prediction.html')">Code 1</button>
+        </div>
     </div>
 
+    <!-- Content Display Section -->
     <div class="content-container">
         <iframe id="contentFrame" src=""></iframe>
     </div>
 
-    <a href="../html%20files/projects.html" class="go-back-box">Go Back to Projects</a>
+    <script>
+        function loadContent(url) {
+            document.getElementById('contentFrame').src = url;
+        }
+    </script>
+
 </body>
 </html>
