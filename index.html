@@ -65,6 +65,21 @@
         a:hover {
             background-color: #45a049;
         }
+        .view-projects {
+            display: inline-block;
+            padding: 12px 20px;
+            font-size: 18px;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .view-projects:hover {
+            background-color: #0056b3;
+        }
         .floating-shapes {
             position: absolute;
             top: 0;
@@ -115,20 +130,11 @@
     
     <div class="container">
         <h2>2024 Summer Internship Projects</h2>
-        <p>Jiayang W</p>
+        <p>Jiayang (Jia) Wang</p>
         <p>Phone: 314-780-6594</p>
         <p>School Email: jiayang.w@wustl.edu</p>
+        <a href="html%20files/projects.html" class="view-projects">View Projects</a>
     </div>
-
-    <script>
-        document.getElementById("view-projects").onclick = () => {
-            localStorage.setItem("authenticated", "true");
-            window.location.href = "html%20files/projects.html";
-        };
-       
-    </script>
-
-    
 
 <div class="floating-shapes">
     <div class="circle" style="top: 10%; left: 10%; width: 15px; height: 15px;"></div>
