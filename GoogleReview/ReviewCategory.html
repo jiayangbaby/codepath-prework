@@ -8,8 +8,8 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
+            padding: 20px;
+            background-color: #f9f9f9;
         }
 
         .top-bar {
@@ -34,30 +34,55 @@
         .top-bar a:hover {
             background-color: #0056b3;
         }
+        .pdf-link a {
+            color: #ff0015;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
+        .pdf-link a:hover {
+            text-decoration: underline;
+        }
         .container {
-            max-width: 1200px;
-            margin: 70px auto 20px;
-            
+            max-width: 1500px;
+            margin: 60px auto 20px;
         }
 
         .text-box {
-            margin-bottom: 20px;
-            padding: 15px;
-            background-color: #f9f9f9;
+            padding: 20px;
+            background-color: #fff;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            font-size: 14px;
+            line-height: 1.5;
+            width: 100%;
+            box-sizing: border-box;
             text-align: left;
+        }
+
+        .graphs {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100vh;
+            border: none;
         }
 
         .buttons-container {
             display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-bottom: 20px;
+            gap: 10px;
+            justify-content: space-between;
+            margin-top: 20px;
         }
 
         .button {
+            flex: 1;
             padding: 10px;
-            font-size: 16px;
+            font-size: 14px;
             color: white;
             background-color: #ea8fcf;
             border: none;
@@ -71,36 +96,56 @@
             background-color: #dc1010;
         }
 
-        .map-container {
-            width: 100%;
-            height: 600px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-        }
-
-        iframe {
+        .graph-container {
+            margin-top: 20px;
             width: 100%;
             height: 100%;
-            border: none;
         }
 
         @media (max-width: 768px) {
+            .graphs {
+                display: flex;
+                flex-direction: row;
+                gap: 20px;
+            }
             .container {
-                margin: 80px auto 20px;
-                text-align: center;
+                margin: 70px auto 20px;
+                position: relative; /* Ensure the container is relative for centering */
+                text-align: center; /* Center text-box content */
+            }
+
+
+            iframe {
+                width: 200vh; /* Adjust width to fit within the viewport */
+                height: 90vh; /* Adjust height to fit within the viewport */
+                
+                
+                
             }
 
             .buttons-container {
-                gap: 10px;
+                flex-direction: column;
             }
 
             .button {
-                font-size: 14px;
+                font-size: 12px;
+                margin-bottom: 10px;
             }
 
-            .map-container {
-                height: 400px;
+            .text-box {
+                font-size: smaller;
+                text-align: left;
             }
+            .graph-container {
+                margin-top: 20px;
+                width: 100%;
+                height: 100%;
+                vertical-align: middle;
+            }
+            .pdf-link {
+                margin-top: 20px; /* Adjust margin for mobile */
+            }
+            
         }
     </style>
     <script>
