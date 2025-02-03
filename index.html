@@ -112,32 +112,22 @@
     </style>
 </head>
 <body>
+    
     <div class="container">
         <h2>2024 Summer Internship Projects</h2>
         <p>Jiayang W</p>
         <p>Phone: 314-780-6594</p>
         <p>School Email: jiayang.w@wustl.edu</p>
-        <h2>Please Contact Me To Get The Passcode </h2>
-        <br>
-        <h2>Enter Passcode to View Projects</h2>
-        <input type="password" id="passcode" placeholder="Enter passcode">
-        <br>
-        <button onclick="checkPasscode()">Submit</button>
-        <div id="error-message" class="error"></div>
     </div>
 
     <script>
-        function redirectToProtectedPage() {
-            // Set authentication flag in localStorage
+        window.onload = () => {
             localStorage.setItem("authenticated", "true");
-            // Redirect to the protected page
             window.location.href = "html%20files/projects.html";
-        }
-
-        // Automatically redirect when the page loads or an event occurs
-        window.onload = redirectToProtectedPage;
+        };
     </script>
 
+    
 
 <div class="floating-shapes">
     <div class="circle" style="top: 10%; left: 10%; width: 15px; height: 15px;"></div>
