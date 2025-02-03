@@ -137,7 +137,28 @@
             transform: translate(-50%, -50%);
             background-size: cover;
         }
-        
+        iframe {
+            width: 100%;
+            height: 50vh; /* Dynamically adjust the height based on viewport */
+            border: none;
+        }
+
+        /* Responsive styles for smaller screens */
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 1.5em;
+            }
+
+            /* Change #2: Stack buttons vertically on mobile */
+            .button {
+                flex-basis: 100%; /* Buttons take full width on mobile */
+            }
+
+            /* Change #3: Adjust iframe height on mobile */
+            iframe {
+                height: 40vh; /* Smaller height for mobile view */
+            }
+        }
         
     </style>
 </head>
