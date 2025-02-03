@@ -37,7 +37,8 @@
 
         .container {
             max-width: 1200px;
-            margin: 70px auto 20px;
+            margin: 80px auto 20px;
+            padding: 0 15px;
         }
 
         .text-box {
@@ -88,7 +89,7 @@
 
         @media (max-width: 768px) {
             .container {
-                margin: 80px auto 20px;
+                margin: 90px auto 20px;
                 text-align: center;
             }
 
@@ -106,38 +107,43 @@
         }
     </style>
     <script>
-        function loadContent(pdfFile, text) {
+        function loadContent(pdfFile) {
             document.getElementById('pdf-viewer').src = pdfFile;
-            document.getElementById('text-content').innerHTML = text;
             document.querySelector('.pdf-container').style.display = 'block';
+        }
+
+        // Check if the user is authenticated
+        window.onload = () => {
+            if (localStorage.getItem('authenticated') !== 'true') {
+                window.location.href = '../index.html'; // Redirect to login page if not authenticated
+            }
         }
     </script>
 </head>
 
 <body>
-    <script>
-        // Check if the user is authenticated
-        if (localStorage.getItem('authenticated') !== 'true') {
-            window.location.href = '../index.html'; // Redirect to login page if not authenticated
-        }
-    </script>
+    <!-- Navigation Bar -->
     <div class="top-bar">
         <a href="../html%20files/projects.html" class="go-back-button">Go Back to Projects</a>
     </div>
 
+    <!-- Main Content Section -->
     <div class="container">
         <h2>Other Projects</h2>
-        
+
+        <!-- Button Section -->
         <div class="buttons-container">
             <a href="#" class="button" onclick="loadContent('Customers Jobs Completed.pdf')">Number of Jobs Completed for Customers</a>
             <a href="#" class="button" onclick="loadContent('Business Unit Jobs Completed.pdf')">Number of Jobs Completed for each Business Unit</a>
             <a href="#" class="button" onclick="loadContent('Nashville TV Advertisement Efficiency Analysis (1).pdf')">Nashville TV Advertisement Efficiency</a>
         </div>
 
+        <!-- PDF Display Section -->
         <div class="pdf-container">
-            <iframe id="pdf-viewer"></iframe>
+            <iframe id="pdf-viewer" title="PDF Viewer"></iframe>
         </div>
     </div>
 </body>
 </html>
+
 
