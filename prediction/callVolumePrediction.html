@@ -3,110 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Call Volume Prediction</title>
+    <title>Nashville Users, Engaged Sessions, and Key Events in relation to Web Sources & Temperature</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-            display: flex;
-        }
-        
-        .sidebar {
-            width: 200px;
-            background-color: #2c3e50;
             padding: 20px;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            color: white;
+            background-color: #f9f9f9;
         }
-        
-        .sidebar button {
+
+        .top-bar {
+            width: 100%;
             padding: 10px;
             background-color: #007BFF;
-            border: none;
-            border-radius: 5px;
             color: white;
-            cursor: pointer;
-            font-size: 16px;
-            text-align: center;
+            text-align: left;
+            box-sizing: border-box;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
         }
 
-        .sidebar button:hover {
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .top-bar a:hover {
             background-color: #0056b3;
         }
-
-        .content-container {
-            flex-grow: 1;
-            padding: 20px;
-            height: 800px; /* Adjust height as needed */
-        }
-
-        .content-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .go-back-box {
-            width: 150px;
-            height: 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #007BFF;
-            color: white;
-            text-align: center;
-            font-size: 16px;
-            border-radius: 8px;
-            cursor: pointer;
+        .pdf-link a {
+            color: #ff0015;
             text-decoration: none;
             font-weight: bold;
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
         }
 
-        .go-back-box:hover {
-            background-color: #0056b3;
+        .pdf-link a:hover {
+            text-decoration: underline;
+        }
+
+
+        .container {
+            max-width: 1500px;
+            margin: 60px auto 20px;
+        }
+
+        .text-box {
+            padding: 20px;
+            background-color: #fff;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            font-size: 14px;
+            line-height: 1.5;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        .graphs {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100vh;
+            border: none;
+        }
+
+        .buttons-container {
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .button {
+            flex: 1;
+            padding: 10px;
+            font-size: 14px;
+            color: white;
+            background-color: #ea8fcf;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #dc1010;
+        }
+
+        .graph-container {
+            margin-top: 20px;
+            width: 100%;
+            height: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .graphs {
+                display: flex;
+                flex-direction: row;
+                gap: 20px;
+            }
+            .container {
+                margin: 70px auto 20px;
+                position: relative; /* Ensure the container is relative for centering */
+                text-align: center; /* Center text-box content */
+            }
+
+
+            iframe {
+                width: 200vh; /* Adjust width to fit within the viewport */
+                height: 90vh; /* Adjust height to fit within the viewport */
+                
+                
+                
+            }
+
+            .buttons-container {
+                flex-direction: column;
+            }
+
+            .button {
+                font-size: 12px;
+                margin-bottom: 10px;
+            }
+
+            .text-box {
+                font-size: smaller;
+                text-align: left;
+            }
+            .graph-container {
+                margin-top: 20px;
+                width: 100%;
+                height: 100%;
+                vertical-align: middle;
+            }
+            .pdf-link {
+                margin-top: 20px; /* Adjust margin for mobile */
+            }
+            
         }
     </style>
-    <script>
-        function loadContent(file) {
-            document.getElementById('contentFrame').src = file;
-        }
-    </script>
 </head>
 <body>
-    <div class="container">
-        <h2>Call Volume Prediction</h2>
-        <div class="text-box">
-            <h3>Project Overview</h3>
-            <p>
-                Utilized historical call volumes as training data to predict future volumes using fixed-effect linear and polynomial models. The model initially included 150 parameters, accounting for factors such as lagged weather, historical call data, market spending, and time. Applied LASSO (Least Absolute Shrinkage Selection Operator) to eliminate unnecessary parameters and compared the mean squared error on test data across both models.
-            </p>
-        </div>
-
-        <!-- Buttons to Load Content -->
-        <div class="buttons-container">
-            <button onclick="loadContent('Daily Call Volume Prediction_NVL.pdf')">Nashville Daily Call Volume Prediction</button>
-            <button onclick="loadContent('call_weather_prediction.html')">Code 1</button>
-        </div>
-    </div>
-
-    <!-- Content Display Section -->
-    <div class="content-container">
-        <iframe id="contentFrame" src=""></iframe>
-    </div>
-
     <script>
-        function loadContent(url) {
-            document.getElementById('contentFrame').src = url;
+        // Check if the user is authenticated
+        if (localStorage.getItem('authenticated') !== 'true') {
+            window.location.href = '../index.html'; // Redirect to login page if not authenticated
         }
     </script>
 
+    <div class="top-bar">
+        <a href="projects.html">Go Back to Projects</a>
+    </div>
+
+    <div class="container">
+        <h2> Call Volume Prediction</h2>
+    
+    
+
+        <div class="text-box">
+            <h4>Project Overview</h4>
+            <p>Utilized historical call volumes as training data to predict future volumes using fixed-effect 
+                linear and polynomial models. The model initially included 150 parameters, accounting for factors 
+                such as lagged weather, historical call data, market spending, and time. 
+                Applied LASSO (Least Absolute Shrinkage Selection Operator) to eliminate unnecessary parameters 
+                and compared the mean squared error on test data across both models.</p>
+        </div>
+
+        <div class="buttons-container">
+            <a href="#" class="button" onclick="loadGraph('call_weather_prediction.html')">Code</a>
+            <a href="#" class="button" onclick="loadGraph('Daily Call Volume Prediction_NVL.pdf')">Nashville Daily Call Volume Prediction</a>
+        </div>
+        <div class="graph-container">
+            <iframe id="graph-frame" src="call_weather_prediction.html"></iframe>
+        </div>
+    </div>
+
+    <script>
+        function loadGraph(graphUrl) {
+            document.getElementById('graph-frame').src = graphUrl;
+        }
+    </script>
 </body>
 </html>
+
