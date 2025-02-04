@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>St. Louis Project</title>
     <style>
         body {
@@ -12,81 +11,45 @@
             height: 100vh;
             text-align: center;
             position: relative;
-            overflow-x: hidden; /* Hide horizontal overflow */
+            overflow-x: hidden;
             padding: 0;
-            background-color: #313030; /* Dark background color */
-            color: #e0e0e0; /* Light text color */
+            background-color: #313030;
+            color: #e0e0e0;
             display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .button-container_mouse {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            z-index: 10; /* Ensure buttons are above other content */
-        }
-        .button_mouse {
-            margin: 5px;
-            padding: 10px;
-            background-color: #e75656; /* Dark grey button background */
-            border: none;
-            border-radius: 5px;
-            color: #e0e0e0; /* Light text color on buttons */
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .button_mouse:hover {
-            background-color: #c43f3f; /* Darker red on hover */
-        }
-        .background {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background-size: cover;
-            background-position: center;
-        }
-        .container {
-            max-width: 100%;
-            width: 40%;
-            margin: auto;
-            padding: 53px;
-            display: grid;
-            grid-template-columns: repeat(1, 1fr);
-            grid-template-rows: repeat(7, 1fr);
             justify-content: center;
             align-items: center;
-            margin: 10px;
-            gap: 20px;
-            padding-bottom: 50px; /* Added padding for bottom spacing */
         }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            width: 40%;
+        }
+
         .box {
-            padding: 53px;
-            background-color: rgba(188, 181, 176, 0.893);
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(200, 20, 20, 0.9), rgba(180, 20, 60, 0.8));
             color: white;
             font-weight: bold;
             text-align: center;
-            font-size: 18px;
+            font-size: 16px;
             text-decoration: none;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s, transform 0.3s ease;
+            width: 300px;
         }
+
         .box:hover {
             background-color: #C8102E;
+            transform: scale(1.05);
         }
-        .button-container {
-            margin: -5px ;
-            text-align: center;
-            z-index: 10;
-            position: absolute;
-            bottom: 10px;
-            width: 100%;
-        }
+
         .back-button {
-            padding: 10px 10px;
+            padding: 12px 20px;
             font-size: 16px;
             color: white;
             background-color: #007BFF;
@@ -94,37 +57,13 @@
             border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
-            display: inline-block;
+            transition: background-color 0.3s ease;
         }
+
         .back-button:hover {
             background-color: #0056b3;
         }
-        .bubble, .butterfly {
-            position: absolute;
-            border-radius: 50%;
-            pointer-events: none;
-            mix-blend-mode: screen;
-            transition: transform 0.2s ease, opacity 0.2s ease;
-            z-index: 5; /* Ensure bubbles/butterflies are above the background but below other content */
-        }
-        .white-bubble {
-            background-color: rgba(255, 255, 255, 0.5);
-        }
-        .pink-bubble {
-            background-color: rgba(255, 192, 203, 0.7); /* Light pink color */
-        }
-        .butterfly {
-            background-image: url('butterfly.png'); /* Replace with the path to your butterfly image */
-            background-size: contain;
-            background-repeat: no-repeat;
-            width: 30px;
-            height: 30px;
-        }
-        .box {
-                font-size: 14px;
-                padding: 15px;
-                background-color: rgba(188, 181, 176, 0.8);
-        }
+
         video {
             position: absolute;
             top: 50%;
@@ -137,33 +76,64 @@
             transform: translate(-50%, -50%);
             background-size: cover;
         }
-        iframe {
-            width: 100%;
-            height: 50vh; /* Dynamically adjust the height based on viewport */
+
+        .button-container_mouse {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 10;
+        }
+
+        .button_mouse {
+            margin: 5px;
+            padding: 10px;
+            background-color: #e75656;
             border: none;
+            border-radius: 5px;
+            color: #e0e0e0;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
 
-        /* Responsive styles for smaller screens */
+        .button_mouse:hover {
+            background-color: #c43f3f;
+        }
+
+        .bubble, .butterfly {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            mix-blend-mode: screen;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+            z-index: 5;
+        }
+
+        .white-bubble {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .pink-bubble {
+            background-color: rgba(255, 192, 203, 0.7);
+        }
+
+        .butterfly {
+            background-image: url('butterfly.png'); /* Replace with your butterfly image path */
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 30px;
+            height: 30px;
+        }
+
         @media (max-width: 768px) {
-            h2 {
-                font-size: 1.5em;
-            }
-
-            /* Change #2: Stack buttons vertically on mobile */
-            .button {
-                flex-basis: 100%; /* Buttons take full width on mobile */
-            }
-
-            /* Change #3: Adjust iframe height on mobile */
-            iframe {
-                height: 40vh; /* Smaller height for mobile view */
+            .box {
+                width: 80%;
             }
         }
-        
     </style>
 </head>
 <body>
-    
+
     <!-- Video background -->
     <video autoplay muted loop>
         <source src="go_home_view.mp4" type="video/mp4">
@@ -174,7 +144,7 @@
         <button class="button_mouse" id="circleButton">Circle</button>
         <button class="button_mouse" id="butterflyButton">Butterfly</button>
     </div>
-    <div class="background"></div>
+
     <div class="container">
         <a href="../automation/automation.html" class="box">Automation & Web Scraping</a>
         <a href="page1.html" class="box">Web Traffic in Relation to Temperature</a>
@@ -182,12 +152,9 @@
         <a href="../GoogleReview/ReviewCategory.html" class="box">Google Review</a>
         <a href="../prediction/callVolumePrediction.html" class="box">Call Volume Prediction</a>
         <a href="Other_Projects.html" class="box">Other Projects</a>
-    </div>
-    </div>
-    </div>
-    <div class="button-container">
         <a href="../index.html" class="back-button">Go Back to Entry Page</a>
     </div>
+
     <script>
         const container = document.querySelector('.container');
         let currentMode = 'circle';
@@ -215,8 +182,8 @@
                 element.style.height = '30px';
             }
 
-            element.style.left = `${e.pageX - (currentMode === 'circle' ? 15 : 15)}px`;
-            element.style.top = `${e.pageY - (currentMode === 'circle' ? 15 : 15)}px`;
+            element.style.left = `${e.pageX - 15}px`;
+            element.style.top = `${e.pageY - 15}px`;
 
             document.body.appendChild(element);
 
@@ -228,3 +195,4 @@
     </script>
 </body>
 </html>
+
